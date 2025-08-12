@@ -13,15 +13,16 @@ export function Video({ videoId }: Readonly<VideoProps>) {
 
   return (
     <Container>
-      <div className="relative w-full h-[500px] max-w-4xl mx-auto overflow-hidden lg:mb-20 rounded-2xl bg-indigo-300 cursor-pointer bg-gradient-to-tr from-purple-400 to-indigo-700">
+      {/* MUDANÇA AQUI: Trocamos o gradiente para usar sua cor primária */}
+      <div className="relative mx-auto h-[500px] w-full max-w-4xl cursor-pointer overflow-hidden rounded-2xl bg-primary/80 bg-gradient-to-tr from-primary/80 to-primary lg:mb-20">
         {!playVideo && (
           <button
             onClick={() => setPlayVideo(!playVideo)}
-            className="absolute inset-auto w-16 h-16 text-white transform -translate-x-1/2 -translate-y-1/2 lg:w-28 lg:h-28 top-1/2 left-1/2"
+            className="absolute inset-auto top-1/2 left-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 transform text-white lg:h-28 lg:w-28"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-16 h-16  lg:w-28 lg:h-28"
+              className="h-16 w-16 lg:h-28 lg:w-28"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -39,7 +40,7 @@ export function Video({ videoId }: Readonly<VideoProps>) {
             src={`https://www.youtube-nocookie.com/embed/${videoId}?controls=0&autoplay=1`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            className="w-full h-full aspect-video"
+            className="aspect-video h-full w-full"
           ></iframe>
         )}
       </div>

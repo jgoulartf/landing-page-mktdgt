@@ -1,60 +1,61 @@
 import {
-  FaceSmileIcon,
-  ChartBarSquareIcon,
-  CursorArrowRaysIcon,
-  DevicePhoneMobileIcon,
-  AdjustmentsHorizontalIcon,
-  SunIcon,
+  UserGroupIcon,
+  ShieldCheckIcon,
+  ChartBarIcon,
+  AcademicCapIcon,
+  SparklesIcon,
+  CheckBadgeIcon,
 } from "@heroicons/react/24/solid";
 
-import benefitOneImg from "../../public/img/benefit-one.png";
-import benefitTwoImg from "../../public/img/benefit-two.png";
+// Lembre-se de colocar as imagens na pasta /public/img/
+import benefitOneImg from "../../public/img/ensaio/1/DSC_0038.jpg";
+import authorityImg from "../../public/img/ensaio/1/DSC_0030.jpg"; // Imagem para a seção de autoridade
 
 const benefitOne = {
-  title: "Highlight your benefits",
-  desc: "You can use this space to highlight your first benefit or a feature of your product. It can also contain an image or Illustration like in the example along with some bullet points.",
+  title: "O método para se tornar uma autoridade médica no digital",
+  desc: "Atraia os pacientes que valorizam seu trabalho e conquiste a liberdade profissional que você merece com um posicionamento ético e estratégico.",
   image: benefitOneImg,
   bullets: [
     {
-      title: "Understand your customers",
-      desc: "Then explain the first point breifly in one or two lines.",
-      icon: <FaceSmileIcon />,
+      title: "Posicionamento como Autoridade",
+      desc: "Deixe de ser apenas mais um e torne-se a referência na sua especialidade, construindo uma marca pessoal forte e respeitada.",
+      icon: <UserGroupIcon />,
     },
     {
-      title: "Improve acquisition",
-      desc: "Here you can add the next benefit point.",
-      icon: <ChartBarSquareIcon />,
+      title: "Marketing Ético e Eficaz",
+      desc: "Divulgue seu trabalho de forma profissional, seguindo as normas do CFM, para atrair o perfil de paciente ideal para o seu consultório.",
+      icon: <ShieldCheckIcon />,
     },
     {
-      title: "Drive customer retention",
-      desc: "This will be your last bullet point in this section.",
-      icon: <CursorArrowRaysIcon />,
+      title: "Gestão Inteligente do Negócio",
+      desc: "Tenha clareza dos números e estratégias que realmente trazem retorno, transformando seu consultório em um negócio lucrativo.",
+      icon: <ChartBarIcon />,
     },
   ],
 };
 
+// Repare que usamos a mesma estrutura do "Benefits" para a seção de Autoridade
 const benefitTwo = {
-  title: "Offer more benefits here",
-  desc: "You can use this same layout with a flip image to highlight your rest of the benefits of your product. It can also contain an image or Illustration as above section along with some bullet points.",
-  image: benefitTwoImg,
+  title: "Quem vai te guiar nessa jornada",
+  desc: "Estrategista de Marketing com foco exclusivo na área da saúde. Minha missão é ajudar médicos a construírem negócios sólidos e éticos no ambiente digital, valorizando o que eles têm de mais precioso: o conhecimento e a autoridade.",
+  image: authorityImg,
   bullets: [
     {
-      title: "Mobile Responsive Template",
-      desc: "Nextly is designed as a mobile first responsive template.",
-      icon: <DevicePhoneMobileIcon />,
+      title: "Especialista na Área da Saúde",
+      desc: "Metodologia desenvolvida pensando nas particularidades e restrições éticas da medicina.",
+      icon: <AcademicCapIcon />,
     },
     {
-      title: "Powered by Next.js & TailwindCSS",
-      desc: "This template is powered by latest technologies and tools.",
-      icon: <AdjustmentsHorizontalIcon />,
+      title: "Foco em Resultados Reais",
+      desc: "Estratégias voltadas para o que importa: mais pacientes qualificados e maior faturamento.",
+      icon: <SparklesIcon />,
     },
     {
-      title: "Dark & Light Mode",
-      desc: "Nextly comes with a zero-config light & dark mode. ",
-      icon: <SunIcon />,
+      title: "Dezenas de Médicos Atendidos",
+      desc: "Experiência validada com profissionais de diversas especialidades em todo o Brasil.",
+      icon: <CheckBadgeIcon />,
     },
   ],
 };
 
-
-export {benefitOne, benefitTwo};
+export { benefitOne, benefitTwo };

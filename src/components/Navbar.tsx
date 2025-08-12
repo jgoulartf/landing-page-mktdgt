@@ -1,57 +1,50 @@
 "use client";
 import Link from "next/link";
-import ThemeChanger from "./DarkSwitch";
-import Image from "next/image"
+import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
 
 export const Navbar = () => {
+  // Links de navegação que apontam para seções da página
   const navigation = [
-    "Product",
-    "Features",
-    "Pricing",
-    "Company",
-    "Blog",
+    { name: "O Método", href: "#benefits" },
+    { name: "Quem Sou", href: "#authority" },
+    { name: "Depoimentos", href: "#testimonials" },
   ];
 
   return (
-    <div className="w-full">
-      <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-1">
-        {/* Logo  */}
-        <Link href="/">
-          <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
-              <span>
-                <Image
-                  src="/img/logo.svg"
-                  width="32"
-                  alt="N"
-                  height="32"
-                  className="w-8"
-                />
-              </span>
-            <span>Nextly</span>
-          </span>
-        </Link>
-
-        {/* get started  */}
-        <div className="gap-3 nav__item mr-2 lg:flex ml-auto lg:ml-0 lg:order-2">
-            <ThemeChanger />
-            <div className="hidden mr-3 lg:flex nav__item">
-              <Link href="/" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
-                Get Started
-              </Link>
-            </div>
-        </div>
-                
+    // Adicionado `sticky top-0 z-50` para fixar no topo e `bg-white dark:bg-trueGray-900 shadow-md` para estilo
+    <div className="sticky top-0 z-50 w-full bg-white shadow-md dark:bg-trueGray-900">
+      <nav className="container relative mx-auto flex flex-wrap items-center justify-between p-4 lg:justify-between xl:px-0">
+        {/* Logo */}
         <Disclosure>
           {({ open }) => (
             <>
+              <div className="flex w-full flex-wrap items-center justify-between lg:w-auto">
+                <Link href="/">
+                  <span className="flex items-center space-x-2 text-2xl font-medium text-primary dark:text-gray-100">
+                    <span>
+                      <Image
+                        src="/img/logo.jpeg" // Mantenha seu logo
+                        width="50" // Ajustei o tamanho para um visual mais refinado
+                        height="50"
+                        alt="Logo Carol Irrael"
+                        className="rounded-full" // Um logo redondo pode ficar elegante
+                      />
+                    </span>
+                    <span className="hidden sm:block">Carol Irrael</span>
+                  </span>
+                </Link>
+
+                {/* Botão do Menu Mobile */}
                 <Disclosure.Button
                   aria-label="Toggle Menu"
-                  className="px-2 py-1 text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700">
+                  className="rounded-md px-2 py-1 text-gray-500 hover:text-primary focus:text-primary focus:outline-none dark:text-gray-300 lg:hidden"
+                >
                   <svg
-                    className="w-6 h-6 fill-current"
+                    className="h-6 w-6 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24">
+                    viewBox="0 0 24 24"
+                  >
                     {open && (
                       <path
                         fillRule="evenodd"
@@ -68,37 +61,57 @@ export const Navbar = () => {
                   </svg>
                 </Disclosure.Button>
 
-                <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
+                {/* Painel do Menu Mobile */}
+                <Disclosure.Panel className="my-5 flex w-full flex-wrap lg:hidden">
                   <>
                     {navigation.map((item, index) => (
-                      <Link key={index} href="/" className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none">
-                          {item}
+                      <Link
+                        key={index}
+                        href={item.href}
+                        className="-ml-4 w-full rounded-md px-4 py-2 text-gray-500 hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary focus:outline-none dark:text-gray-300"
+                      >
+                        {item.name}
                       </Link>
                     ))}
-                    <Link href="/" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5">         
-                        Get Started
+                    <Link
+                      href="#offer"
+                      className="mt-3 w-full rounded-md bg-primary px-6 py-2 text-center text-white lg:ml-5"
+                    >
+                      Agendar Análise
                     </Link>
                   </>
                 </Disclosure.Panel>
+              </div>
             </>
           )}
         </Disclosure>
-        
-        {/* menu  */}
+
+        {/* Menu Desktop */}
         <div className="hidden text-center lg:flex lg:items-center">
-          <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
+          <ul className="flex-1 list-none items-center justify-end pt-6 lg:flex lg:pt-0">
             {navigation.map((menu, index) => (
-              <li className="mr-3 nav__item" key={index}>
-                <Link href="/" className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800">
-                    {menu}
+              <li className="nav__item mr-3" key={index}>
+                <Link
+                  href={menu.href}
+                  className="inline-block rounded-md px-4 py-2 text-lg font-normal text-gray-800 no-underline hover:text-primary focus:text-primary focus:outline-none dark:text-gray-200"
+                >
+                  {menu.name}
                 </Link>
               </li>
             ))}
           </ul>
         </div>
 
+        {/* Botão CTA Desktop */}
+        <div className="nav__item hidden space-x-4 lg:flex">
+          <Link
+            href="#offer"
+            className="rounded-md bg-primary px-6 py-2 text-white md:ml-5"
+          >
+            Agendar Análise
+          </Link>
+        </div>
       </nav>
     </div>
   );
-}
-
+};

@@ -15,6 +15,11 @@ const config: Config = {
     extend: {
       colors: {
         trueGray: colors.neutral,
+        primary: {
+        DEFAULT: "#885a3e", // Um tom de terracota/marrom
+        light: "#a17b63"
+      },
+      secondary: "#f5f0eb",
       },
     },
     fontFamily: {

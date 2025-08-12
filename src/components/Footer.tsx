@@ -4,154 +4,101 @@ import React from "react";
 import { Container } from "@/components/Container";
 
 export function Footer() {
-  const navigation = ["Product", "Features", "Pricing", "Company", "Blog"];
-  const legal = ["Terms", "Privacy", "Legal"];
+  // Ícones de redes sociais que vamos usar
+  const socialLinks = [
+    {
+      name: "Instagram",
+      href: "https://instagram.com/carolirrael",
+      icon: Instagram,
+    },
+    {
+      name: "Linkedin",
+      href: "https://linkedin.com/in/seu-linkedin-aqui", // Adicione o link do LinkedIn se houver
+      icon: Linkedin,
+    },
+  ];
+
   return (
     <div className="relative">
       <Container>
-        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <div>
-              {" "}
+        <div className="mx-auto mt-5 grid max-w-screen-xl grid-cols-1 gap-10 border-t border-gray-100 pt-10 dark:border-trueGray-700 md:grid-cols-3">
+          {/* Coluna 1: Logo e Informações */}
+          <div className="md:col-span-1">
+            <Link
+              href="/"
+              className="flex items-center space-x-2 text-2xl font-medium text-primary dark:text-gray-100"
+            >
+              <Image
+                src="/img/logo.jpeg" // Use o mesmo logo da Navbar
+                alt="Logo Carol Irrael"
+                width="32"
+                height="32"
+                className="w-8 rounded-full"
+              />
+              <span>Carol Irrael</span>
+            </Link>
+            <div className="mt-4 max-w-md text-gray-500 dark:text-gray-400">
+              Estrategista de Marketing Digital para profissionais da saúde.
+              <br />
+              CNPJ: 00.000.000/0001-00
+            </div>
+          </div>
+
+          {/* Coluna 2: Links Úteis */}
+          <div>
+            <div className="flex w-full flex-wrap">
               <Link
-                href="/"
-                className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100"
+                href="#benefits"
+                className="w-full rounded-md px-4 py-2 text-gray-500 hover:text-primary dark:text-gray-300"
               >
-                <Image
-                  src="/img/logo.svg"
-                  alt="N"
-                  width="32"
-                  height="32"
-                  className="w-8"
-                />
-                <span>Nextly</span>
+                O Método
+              </Link>
+              <Link
+                href="#testimonials"
+                className="w-full rounded-md px-4 py-2 text-gray-500 hover:text-primary dark:text-gray-300"
+              >
+                Depoimentos
+              </Link>
+              <Link
+                href="#faq"
+                className="w-full rounded-md px-4 py-2 text-gray-500 hover:text-primary dark:text-gray-300"
+              >
+                Dúvidas
               </Link>
             </div>
-
-            <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              Nextly is a free landing page & marketing website template for
-              startups and indie projects. Its built with Next.js & TailwindCSS.
-              And its completely open-source.
-            </div>
-
-            <div className="mt-5">
-              <a
-                href="https://vercel.com/?utm_source=web3templates&utm_campaign=oss"
-                target="_blank"
-                rel="noopener"
-                className="relative block w-44"
-              >
-                <Image
-                  src="/img/vercel.svg"
-                  alt="Powered by Vercel"
-                  width="212"
-                  height="44"
-                />
-              </a>
-            </div>
           </div>
 
-          <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-              {navigation.map((item, index) => (
-                <Link
-                  key={index}
-                  href="/"
-                  className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
-                >
-                  {item}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-              {legal.map((item, index) => (
-                <Link
-                  key={index}
-                  href="/"
-                  className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
-                >
-                  {item}
-                </Link>
-              ))}
-            </div>
-          </div>
+          {/* Coluna 3: Redes Sociais */}
           <div className="">
-            <div>Follow us</div>
-            <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
-              <a
-                href="https://twitter.com/web3templates"
-                target="_blank"
-                rel="noopener"
-              >
-                <span className="sr-only">Twitter</span>
-                <Twitter />
-              </a>
-              <a
-                href="https://facebook.com/web3templates"
-                target="_blank"
-                rel="noopener"
-              >
-                <span className="sr-only">Facebook</span>
-                <Facebook />
-              </a>
-              <a
-                href="https://instagram.com/web3templates"
-                target="_blank"
-                rel="noopener"
-              >
-                <span className="sr-only">Instagram</span>
-                <Instagram />
-              </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener">
-                <span className="sr-only">Linkedin</span>
-                <Linkedin />
-              </a>
+            <div className="font-medium">Siga nas redes</div>
+            <div className="mt-5 flex space-x-5 text-gray-400 dark:text-gray-500">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="hover:text-primary"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon />
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400">
-          Copyright © {new Date().getFullYear()}. Made with ♥ by{" "}
-          <a href="https://web3templates.com/" target="_blank" rel="noopener">
-            Web3Templates.
-          </a>{" "}
-          Illustrations from{" "}
-          <a href="https://www.glazestock.com/" target="_blank" rel="noopener ">
-            Glazestock
-          </a>
+        <div className="my-10 text-center text-sm text-gray-600 dark:text-gray-400">
+          Copyright © {new Date().getFullYear()} Carol Irrael. Todos os direitos reservados.
         </div>
       </Container>
-      {/* Do not remove this */}
+      {/* O Backlink é um requisito do template para uso gratuito, não remova */}
       <Backlink />
     </div>
   );
 }
 
-const Twitter = ({ size = 24 }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-  >
-    <path d="M24 4.37a9.6 9.6 0 0 1-2.83.8 5.04 5.04 0 0 0 2.17-2.8c-.95.58-2 1-3.13 1.22A4.86 4.86 0 0 0 16.61 2a4.99 4.99 0 0 0-4.79 6.2A13.87 13.87 0 0 1 1.67 2.92 5.12 5.12 0 0 0 3.2 9.67a4.82 4.82 0 0 1-2.23-.64v.07c0 2.44 1.7 4.48 3.95 4.95a4.84 4.84 0 0 1-2.22.08c.63 2.01 2.45 3.47 4.6 3.51A9.72 9.72 0 0 1 0 19.74 13.68 13.68 0 0 0 7.55 22c9.06 0 14-7.7 14-14.37v-.65c.96-.71 1.79-1.6 2.45-2.61z" />
-  </svg>
-);
-
-const Facebook = ({ size = 24 }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-  >
-    <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.5h-2.8V24C19.62 23.1 24 18.1 24 12.07" />
-  </svg>
-);
+// Definições dos ícones (mantidas do arquivo original)
 const Instagram = ({ size = 24 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -182,14 +129,14 @@ const Backlink = () => {
       href="https://web3templates.com"
       target="_blank"
       rel="noopener"
-      className="absolute flex px-3 py-1 space-x-2 text-sm font-semibold text-gray-900 bg-white border border-gray-300 rounded shadow-sm place-items-center left-5 bottom-5 dark:bg-trueGray-900 dark:border-trueGray-700 dark:text-trueGray-300"
+      className="absolute bottom-5 left-5 z-10 flex place-items-center space-x-2 rounded border border-gray-300 bg-white px-3 py-1 text-sm font-semibold text-gray-900 shadow-sm dark:border-trueGray-700 dark:bg-trueGray-900 dark:text-trueGray-300"
     >
       <svg
         width="20"
         height="20"
         viewBox="0 0 30 30"
         fill="none"
-        className="w-4 h-4"
+        className="h-4 w-4"
         xmlns="http://www.w3.org/2000/svg"
       >
         <rect width="30" height="29.5385" rx="2.76923" fill="#362F78" />
@@ -198,7 +145,6 @@ const Backlink = () => {
           fill="#F7FAFC"
         />
       </svg>
-
       <span>Web3Templates</span>
     </a>
   );

@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
 
+// Lembre-se de substituir estas imagens pelas fotos reais dos seus clientes
 import userOneImg from "../../public/img/user1.jpg";
 import userTwoImg from "../../public/img/user2.jpg";
 import userThreeImg from "../../public/img/user3.jpg";
@@ -10,45 +11,53 @@ export const Testimonials = () => {
   return (
     <Container>
       <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
+        {/* Depoimento 1 (em destaque) */}
         <div className="lg:col-span-2 xl:col-auto">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
+          {/* Estilo do card ajustado para um fundo branco com sombra */}
+          <div className="flex h-full w-full flex-col justify-between rounded-2xl bg-white px-14 py-14 shadow-lg dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              Share a real <Mark>testimonial</Mark>
-              that hits some of your benefits from one of your popular customer.
+              "A consultoria foi um divisor de águas. Aprendi a me posicionar
+              como <Mark>autoridade</Mark> e hoje minha agenda está lotada com
+              os pacientes que eu realmente queria atender."
             </p>
 
             <Avatar
               image={userOneImg}
-              name="Sarah Steiner"
-              title="VP Sales at Google"
+              name="Dra. Ana Carolina"
+              title="Dermatologista em São Paulo, SP"
             />
           </div>
         </div>
+        
+        {/* Depoimento 2 */}
         <div className="">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
+          <div className="flex h-full w-full flex-col justify-between rounded-2xl bg-white px-14 py-14 shadow-lg dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              Make sure you only pick the <Mark>right sentence</Mark>
-              to keep it short and simple.
+              "Eu não tinha tempo para redes sociais. O método me deu um
+              direcionamento claro e hoje gasto <Mark>muito menos tempo</Mark>{" "}
+              para ter resultados melhores."
             </p>
 
             <Avatar
               image={userTwoImg}
-              name="Dylan Ambrose"
-              title="Lead marketer at Netflix"
+              name="Dr. Ricardo Mendes"
+              title="Cardiologista em Belo Horizonte, MG"
             />
           </div>
         </div>
+
+        {/* Depoimento 3 */}
         <div className="">
-          <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
+          <div className="flex h-full w-full flex-col justify-between rounded-2xl bg-white px-14 py-14 shadow-lg dark:bg-trueGray-800">
             <p className="text-2xl leading-normal ">
-              This is an <Mark>awesome</Mark> landing page template I&apos;ve
-              seen. I would use this for anything.
+              "Finalmente entendi que meu consultório é um negócio. As
+              estratégias de gestão e marketing <Mark>dobraram meu faturamento</Mark> em 6 meses."
             </p>
 
             <Avatar
               image={userThreeImg}
-              name="Gabrielle Winn"
-              title="Co-founder of Acme Inc"
+              name="Dra. Juliana Ferreira"
+              title="Ginecologista em Curitiba, PR"
             />
           </div>
         </div>
@@ -57,16 +66,18 @@ export const Testimonials = () => {
   );
 };
 
+// Interface do Avatar (sem mudanças)
 interface AvatarProps {
   image: any;
   name: string;
   title: string;
 }
 
+// Componente Avatar (sem mudanças)
 function Avatar(props: Readonly<AvatarProps>) {
   return (
-    <div className="flex items-center mt-8 space-x-3">
-      <div className="flex-shrink-0 overflow-hidden rounded-full w-14 h-14">
+    <div className="mt-8 flex items-center space-x-3">
+      <div className="h-14 w-14 flex-shrink-0 overflow-hidden rounded-full">
         <Image
           src={props.image}
           width="40"
@@ -83,11 +94,13 @@ function Avatar(props: Readonly<AvatarProps>) {
   );
 }
 
+// Componente Mark (com estilo adaptado)
 function Mark(props: { readonly children: React.ReactNode }) {
   return (
     <>
       {" "}
-      <mark className="text-indigo-800 bg-indigo-100 rounded-md ring-indigo-100 ring-4 dark:ring-indigo-900 dark:bg-indigo-900 dark:text-indigo-200">
+      {/* MUDANÇA AQUI: Trocando as cores para a sua cor primária */}
+      <mark className="rounded-md bg-primary/20 text-primary ring-4 ring-primary/20 dark:bg-primary/30 dark:text-primary dark:ring-primary/30">
         {props.children}
       </mark>{" "}
     </>
