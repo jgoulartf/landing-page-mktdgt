@@ -13,12 +13,12 @@ export const Testimonials = () => {
       <div className="grid gap-10 lg:grid-cols-2 xl:grid-cols-3">
         {/* Depoimento 1 (em destaque) */}
         <div className="lg:col-span-2 xl:col-auto">
-          {/* Estilo do card ajustado para um fundo branco com sombra */}
           <div className="flex h-full w-full flex-col justify-between rounded-2xl bg-white px-14 py-14 shadow-lg dark:bg-trueGray-800">
+            {/* MUDANÇA AQUI: Aspas substituídas por entidades HTML */}
             <p className="text-2xl leading-normal ">
-              "A consultoria foi um divisor de águas. Aprendi a me posicionar
+              &ldquo;A consultoria foi um divisor de águas. Aprendi a me posicionar
               como <Mark>autoridade</Mark> e hoje minha agenda está lotada com
-              os pacientes que eu realmente queria atender."
+              os pacientes que eu realmente queria atender.&rdquo;
             </p>
 
             <Avatar
@@ -32,10 +32,11 @@ export const Testimonials = () => {
         {/* Depoimento 2 */}
         <div className="">
           <div className="flex h-full w-full flex-col justify-between rounded-2xl bg-white px-14 py-14 shadow-lg dark:bg-trueGray-800">
+            {/* MUDANÇA AQUI: Aspas substituídas por entidades HTML */}
             <p className="text-2xl leading-normal ">
-              "Eu não tinha tempo para redes sociais. O método me deu um
+              &ldquo;Eu não tinha tempo para redes sociais. O método me deu um
               direcionamento claro e hoje gasto <Mark>muito menos tempo</Mark>{" "}
-              para ter resultados melhores."
+              para ter resultados melhores.&rdquo;
             </p>
 
             <Avatar
@@ -49,9 +50,10 @@ export const Testimonials = () => {
         {/* Depoimento 3 */}
         <div className="">
           <div className="flex h-full w-full flex-col justify-between rounded-2xl bg-white px-14 py-14 shadow-lg dark:bg-trueGray-800">
+            {/* MUDANÇA AQUI: Aspas substituídas por entidades HTML */}
             <p className="text-2xl leading-normal ">
-              "Finalmente entendi que meu consultório é um negócio. As
-              estratégias de gestão e marketing <Mark>dobraram meu faturamento</Mark> em 6 meses."
+              &ldquo;Finalmente entendi que meu consultório é um negócio. As
+              estratégias de gestão e marketing <Mark>dobraram meu faturamento</Mark> em 6 meses.&rdquo;
             </p>
 
             <Avatar
@@ -94,12 +96,11 @@ function Avatar(props: Readonly<AvatarProps>) {
   );
 }
 
-// Componente Mark (com estilo adaptado)
+// Componente Mark (sem mudanças)
 function Mark(props: { readonly children: React.ReactNode }) {
   return (
     <>
       {" "}
-      {/* MUDANÇA AQUI: Trocando as cores para a sua cor primária */}
       <mark className="rounded-md bg-primary/20 text-primary ring-4 ring-primary/20 dark:bg-primary/30 dark:text-primary dark:ring-primary/30">
         {props.children}
       </mark>{" "}
