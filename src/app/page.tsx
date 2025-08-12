@@ -3,10 +3,11 @@ import { Hero } from "@/components/Hero";
 import { Benefits } from "@/components/Benefits";
 import { Video } from "@/components/Video";
 import { Testimonials } from "@/components/Testimonials";
+import { Packages } from "@/components/packages"; // Importe o novo componente
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
 
-import { benefitOne, benefitTwo } from "@/components/data";
+import { benefitOne, benefitTwo, packagesData } from "@/components/data"; // Importe os dados
 
 // Este componente SectionTitle agora usa sua cor primária.
 const SectionTitle = (props: {
@@ -88,6 +89,9 @@ export default function Home() {
         Tire todas as suas dúvidas aqui. Se a sua pergunta não estiver na
         lista, entre em contato diretamente conosco.
       </SectionTitle>
+
+      <Packages data={packagesData} /> {/* Adicione a nova seção aqui */}
+
 
       <Faq />
       <Cta />

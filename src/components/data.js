@@ -9,7 +9,7 @@ import {
 
 // Lembre-se de colocar as imagens na pasta /public/img/
 import benefitOneImg from "../../public/img/ensaio/1/DSC_0038.jpg";
-import authorityImg from "../../public/img/ensaio/1/DSC_0030.jpg"; // Imagem para a seção de autoridade
+import authorityImg from "../../public/img/ensaio/1/DSC_0244.jpg"; // Imagem para a seção de autoridade
 
 const benefitOne = {
   title: "O método para se tornar uma autoridade médica no digital",
@@ -57,5 +57,42 @@ const benefitTwo = {
     },
   ],
 };
+// ... (no final do arquivo, adicione)
 
-export { benefitOne, benefitTwo };
+const packagesData = [
+  {
+    name: "Consultoria Express",
+    price: "R$ 497",
+    priceId: "price_xxxxxxxxxxxxxx1", // SUBSTITUA PELO SEU ID DO STRIPE
+    features: [
+      "1 Encontro online de 90 min",
+      "Diagnóstico e Plano de Ação",
+      "Ideal para tirar dúvidas pontuais",
+    ],
+  },
+  {
+    name: "Mentoria Individual",
+    price: "R$ 1.997",
+    priceId: "price_xxxxxxxxxxxxxx2", // SUBSTITUA PELO SEU ID DO STRIPE
+    isFeatured: true, // Para destacar o pacote principal
+    features: [
+      "4 Encontros online",
+      "Acompanhamento via WhatsApp",
+      "Planejamento estratégico completo",
+      "Foco em posicionamento de autoridade",
+    ],
+  },
+  {
+    name: "Gestão Completa",
+    price: "Sob consulta",
+    priceId: null, // Sem ID, pois é sob consulta
+    features: [
+      "Todo o plano de Mentoria",
+      "Execução da estratégia pela nossa equipe",
+      "Relatórios mensais de desempenho",
+    ],
+  },
+];
+
+
+export { benefitOne, benefitTwo, packagesData }; // Adicione packagesData aqui
