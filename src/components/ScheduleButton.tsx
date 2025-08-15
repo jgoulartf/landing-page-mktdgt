@@ -17,6 +17,7 @@ export const ScheduleButton: React.FC<ScheduleButtonProps> = ({ className, child
   return (
     <button 
       onClick={handleClick}
+      
       className={className}
     >
       {children || 'Garantir Minha Vaga'}
