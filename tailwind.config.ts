@@ -16,7 +16,7 @@ const config: Config = {
       colors: {
         trueGray: colors.neutral,
         primary: {
-        DEFAULT: "#885a3e", // Um tom de terracota/marrom
+        DEFAULT: "#a07f37", // Um tom de terracota/marrom
         light: "#a17b63"
       },
       secondary: "#f5f0eb",
