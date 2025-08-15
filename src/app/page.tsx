@@ -1,3 +1,5 @@
+'use client';
+
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { Benefits } from "@/components/Benefits";
@@ -6,8 +8,12 @@ import { Testimonials } from "@/components/Testimonials";
 import { Packages } from "@/components/packages"; // Importe o novo componente
 import { Faq } from "@/components/Faq";
 import { Cta } from "@/components/Cta";
-
+import Cal from "@calcom/embed-react";
 import { benefitOne, benefitTwo, packagesData } from "@/components/data"; // Importe os dados
+import { getCalApi } from "@calcom/embed-react";
+import { useEffect } from "react";
+import { SchedulingProvider } from '../contexts/SchedulingContext';
+import { FormModal } from '@/components/FormModal';
 
 // Este componente SectionTitle agora usa sua cor primária.
 const SectionTitle = (props: {
@@ -44,57 +50,69 @@ const SectionTitle = (props: {
   );
 };
 
-
 export default function Home() {
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi();
+      cal("ui", {
+        theme: "dark",
+        styles: {
+          branding: { brandColor: "#000000" },
+        },
+      });
+    })();
+  }, []);
   return (
-    <Container>
-      <Hero />
+    <SchedulingProvider>
+      <FormModal />
+      <Container>
+        <Hero />
 
-      {/* Este SectionTitle agora usará a cor primária corretamente */}
-      <SectionTitle
-        preTitle="O MÉTODO"
-        title="A jornada para se tornar uma autoridade digital"
-      >
-        Entenda os pilares que sustentam um posicionamento médico de sucesso,
-        desde a atração de pacientes qualificados até a gestão de um negócio
-        lucrativo e ético.
-      </SectionTitle>
+        {/* Este SectionTitle agora usará a cor primária corretamente */}
+        <SectionTitle
+          preTitle="O MÉTODO"
+          title="A jornada para se tornar uma autoridade digital"
+        >
+          Entenda os pilares que sustentam um posicionamento médico de sucesso,
+          desde a atração de pacientes qualificados até a gestão de um negócio
+          lucrativo e ético.
+        </SectionTitle>
 
-      <Benefits data={benefitOne} />
-      <Benefits imgPos="right" data={benefitTwo} />
+        <Benefits data={benefitOne} />
+        <Benefits imgPos="right" data={benefitTwo} />
 
-      <SectionTitle
-        preTitle="UMA MENSAGEM PARA VOCÊ"
-        title="Assista e entenda a minha filosofia de trabalho"
-      >
-        Aperte o play e descubra em poucos minutos como podemos, juntos,
-        construir a sua autoridade no digital de forma ética e profissional.
-      </SectionTitle>
-      
-      {/* Lembre-se de trocar o videoId por um vídeo da sua irmã */}
-      <Video videoId="fZ0D0cnR88E" />
+        <SectionTitle
+          preTitle="UMA MENSAGEM PARA VOCÊ"
+          title="Assista e entenda a minha filosofia de trabalho"
+        >
+          Aperte o play e descubra em poucos minutos como podemos, juntos,
+          construir a sua autoridade no digital de forma ética e profissional.
+        </SectionTitle>
 
-      <SectionTitle
-        preTitle="RESULTADOS REAIS"
-        title="O que médicos dizem sobre a consultoria"
-      >
-        A maior prova de que o método funciona são os resultados. Veja o que
-        profissionais como você estão dizendo sobre a transformação em seus
-        consultórios.
-      </SectionTitle>
+        {/* Lembre-se de trocar o videoId por um vídeo da sua irmã */}
+        <Video videoId="fZ0D0cnR88E" />
 
-      <Testimonials />
+        <SectionTitle
+          preTitle="RESULTADOS REAIS"
+          title="O que médicos dizem sobre a consultoria"
+        >
+          A maior prova de que o método funciona são os resultados. Veja o que
+          profissionais como você estão dizendo sobre a transformação em seus
+          consultórios.
+        </SectionTitle>
 
-      <SectionTitle preTitle="DÚVIDAS FREQUENTES" title="Respostas para suas perguntas">
-        Tire todas as suas dúvidas aqui. Se a sua pergunta não estiver na
-        lista, entre em contato diretamente conosco.
-      </SectionTitle>
+        <Testimonials />
 
-      <Packages data={packagesData} /> {/* Adicione a nova seção aqui */}
+        <SectionTitle preTitle="DÚVIDAS FREQUENTES" title="Respostas para suas perguntas">
+          Tire todas as suas dúvidas aqui. Se a sua pergunta não estiver na
+          lista, entre em contato diretamente conosco.
+        </SectionTitle>
 
+        <Packages data={packagesData} /> {/* Adicione a nova seção aqui */}
 
-      <Faq />
-      <Cta />
-    </Container>
+        <Faq />
+        <Cta />
+      </Container>
+    </SchedulingProvider>
   );
 }

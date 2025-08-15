@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
+import { ScheduleButton } from "./ScheduleButton";
 
 export const Navbar = () => {
   // Links de navegação que apontam para seções da página
@@ -77,7 +78,7 @@ export const Navbar = () => {
                       href="#offer"
                       className="mt-3 w-full rounded-md bg-primary px-6 py-2 text-center text-white lg:ml-5"
                     >
-                      Agendar Análise
+                      Garantir Minha Vaga
                     </Link>
                   </>
                 </Disclosure.Panel>
@@ -104,12 +105,11 @@ export const Navbar = () => {
 
         {/* Botão CTA Desktop */}
         <div className="nav__item hidden space-x-4 lg:flex">
-          <Link
-            href="#offer"
+          <ScheduleButton 
             className="rounded-md bg-primary px-6 py-2 text-white md:ml-5"
           >
-            Agendar Análise
-          </Link>
+            Garantir Minha Vaga
+          </ScheduleButton>
         </div>
       </nav>
     </div>

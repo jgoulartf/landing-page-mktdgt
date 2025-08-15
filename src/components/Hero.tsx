@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/Container";
 import heroImg from "../../public/img/ensaio/1/DSC_0030.jpg";
+import { ScheduleButton } from "./ScheduleButton";
 
 export const Hero = () => {
   return (
@@ -22,7 +23,7 @@ export const Hero = () => {
         <div className="flex w-full items-center justify-center lg:w-1/2">
           <div className="mb-8 max-w-2xl">
             <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 dark:text-white lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight">
-              Vire CEO do seu negócio
+              Seja o CEO do seu negócio
             </h1>
             {/* TEXTO ADAPTADO PARA O PÚBLICO-ALVO */}
             <p className="py-5 text-xl leading-normal text-justify text-gray-500 dark:text-gray-300 lg:text-xl xl:text-2xl">
@@ -32,13 +33,11 @@ export const Hero = () => {
             </p>
 
             <div className="flex flex-col items-start space-y-3 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0">
-              {/* BOTÃO PRINCIPAL ADAPTADO */}
-              <a
-                href="#offer" // Mude o link para a seção de oferta/contato
+              <ScheduleButton 
                 className="rounded-md bg-primary px-8 py-4 text-center text-lg font-medium text-white"
               >
-                Agendar Análise Estratégica
-              </a>
+                Garantir Minha Vaga
+              </ScheduleButton>
               {/* BOTÃO SECUNDÁRIO ADAPTADO PARA WHATSAPP */}
               <a
                 href="https://wa.me/SEUNUMERO" // Coloque o link do WhatsApp aqui

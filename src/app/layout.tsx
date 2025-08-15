@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import Script from 'next/script'; // 1. Importar o componente
 import "./globals.css";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PopupWidget }  from "@/components/PopupWidget";
-
+import { SchedulingProvider } from '../contexts/SchedulingContext';
+import { Providers } from './providers';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,11 +26,17 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class">
-          <Navbar />
-          <div>{children}</div>
-          <Footer />
-          <PopupWidget />
+          <SchedulingProvider>
+            <Providers>
+              <Navbar />
+              <div>
+                {children}
+              </div>
+              <Footer />
+            </Providers>
+          </SchedulingProvider>
         </ThemeProvider>
+
       </body>
     </html>
   );

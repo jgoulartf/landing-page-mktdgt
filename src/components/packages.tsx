@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Container } from "@/components/Container";
 import useEmblaCarousel from "embla-carousel-react";
+import { ScheduleButton } from "./ScheduleButton";
 
 // Interface para definir o formato de cada pacote
 interface Package {
@@ -91,17 +92,15 @@ export const Packages = ({ data }: PackagesProps) => {
                     ))}
                   </ul>
                 </div>
-                <button
-                  onClick={() => pkg.priceId && handleCheckout(pkg.priceId)}
-                  disabled={!pkg.priceId || isLoading === pkg.priceId}
+                <ScheduleButton
                   className={`mt-8 w-full rounded-lg px-6 py-3 text-lg font-semibold text-white transition-colors ${
                     pkg.priceId
                       ? "bg-primary hover:bg-primary/90"
                       : "cursor-not-allowed bg-gray-400"
                   }`}
                 >
-                  {isLoading === pkg.priceId ? "Carregando..." : pkg.priceId ? "Contratar Agora" : "Fale Conosco"}
-                </button>
+                  Garantir Minha Vaga
+                </ScheduleButton>
               </div>
             </div>
           ))}

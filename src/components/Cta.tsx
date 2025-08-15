@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "@/components/Container";
+import { ScheduleButton } from "./ScheduleButton";
 
 export const Cta = () => {
   return (
@@ -16,13 +17,11 @@ export const Cta = () => {
           </p>
         </div>
         <div className="w-full flex-shrink-0 text-center lg:w-auto">
-          {/* Link e texto do botão adaptados */}
-          <a
-            href="#offer" // Link aponta para a seção de oferta principal
-            className="mx-auto inline-block rounded-md bg-white px-7 py-3 text-lg font-medium text-center text-primary lg:px-10 lg:py-5 "
+          <ScheduleButton
+            className="mx-auto inline-block rounded-md bg-white px-7 py-3 text-lg font-medium text-center text-primary lg:px-10 lg:py-5"
           >
-            Agendar Análise Estratégica
-          </a>
+            Garantir Minha Vaga
+          </ScheduleButton>
         </div>
       </div>
     </Container>
